@@ -1,0 +1,14 @@
+{
+  "name": "author-talk-skill-path-picker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tiny static demo app for the Pluralsight Author Talk on M365 Copilot, Claude Code, and GitHub Copilot.",
+  "scripts": {
+    "dev": "npx --yes serve public -l 3000",
+    "test": "npx --yes playwright test",
+    "test:install": "npx --yes playwright install --with-deps chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0"
+  }
+}

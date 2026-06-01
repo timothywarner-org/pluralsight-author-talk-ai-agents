@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Skill Path Picker</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>AI Skill Path Picker</h1>
+    <p class="tagline">Pick a path. Level up. Demo material for the Pluralsight Author Talk.</p>
+  </header>
+
+  <main>
+    <section class="path-list" data-testid="path-list">
+      <article class="path-card" data-path-id="genai-foundations">
+        <h2>Generative AI Foundations</h2>
+        <p class="path-meta">12 hours &middot; Beginner</p>
+        <p>Prompt engineering, context engineering, and the muscle memory every AI builder needs.</p>
+        <a class="cta" href="enroll.html?path=genai-foundations" data-testid="enroll-genai-foundations">Enroll</a>
+      </article>
+
+      <article class="path-card" data-path-id="claude-code-pro">
+        <h2>Claude Code for Professional Developers</h2>
+        <p class="path-meta">18 hours &middot; Intermediate</p>
+        <p>Subagents, Skills, plugins, and the agentic loop on real engineering work.</p>
+        <a class="cta" href="enroll.html?path=claude-code-pro" data-testid="enroll-claude-code-pro">Enroll</a>
+      </article>
+
+      <article class="path-card" data-path-id="github-copilot-fleet">
+        <h2>GitHub Copilot: Coding Agent &amp; PR Reviewer</h2>
+        <p class="path-meta">8 hours &middot; Intermediate</p>
+        <p>One AGENTS.md, two robots, and an entire org's quality bar enforced from one file.</p>
+        <a class="cta" href="enroll.html?path=github-copilot-fleet" data-testid="enroll-github-copilot-fleet">Enroll</a>
+      </article>
+
+      <article class="path-card" data-path-id="m365-copilot-everyday">
+        <h2>M365 Copilot Every Day</h2>
+        <p class="path-meta">6 hours &middot; Beginner</p>
+        <p>Custom instructions, declarative agents in Copilot Studio, and the moves that actually save time.</p>
+        <a class="cta" href="enroll.html?path=m365-copilot-everyday" data-testid="enroll-m365-copilot-everyday">Enroll</a>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built for the <a href="https://app.pluralsight.com/profile/author/tim-warner">Pluralsight Author Talk</a> series. MIT licensed.</p>
+  </footer>
+
+  <script src="scripts/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enroll &middot; AI Skill Path Picker</title>
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Enroll</h1>
+    <p class="tagline" data-testid="selected-path">Loading path&hellip;</p>
+  </header>
+
+  <main>
+    <form id="enroll-form" class="enroll-form" data-testid="enroll-form" novalidate>
+      <label for="full-name">Full name
+        <input id="full-name" name="fullName" type="text" required minlength="2" data-testid="full-name-input" />
+      </label>
+
+      <label for="email">Work email
+        <input id="email" name="email" type="email" required data-testid="email-input" />
+      </label>
+
+      <label for="role">Role
+        <select id="role" name="role" required data-testid="role-select">
+          <option value="">Choose your role&hellip;</option>
+          <option value="developer">Developer</option>
+          <option value="devops">DevOps Engineer</option>
+          <option value="product-owner">Product Owner</option>
+          <option value="scrum-master">Scrum Master</option>
+          <option value="tech-lead">Tech Lead</option>
+          <option value="other">Other</option>
+        </select>
+      </label>
+
+      <label class="checkbox-row">
+        <input type="checkbox" id="newsletter" name="newsletter" data-testid="newsletter-checkbox" />
+        Send me follow-up resources from the Author Talk
+      </label>
+
+      <button type="submit" class="cta" data-testid="submit-enroll">Confirm enrollment</button>
+    </form>
+
+    <p id="form-error" class="error-banner" hidden data-testid="form-error"></p>
+  </main>
+
+  <footer>
+    <p><a href="index.html">&larr; Back to paths</a></p>
+  </footer>
+
+  <script src="scripts/app.js"></script>
+  <script src="scripts/enroll.js"></script>
+</body>
+</html>

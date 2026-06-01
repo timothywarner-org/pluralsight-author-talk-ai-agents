@@ -1,0 +1,63 @@
+# Playwright end-to-end tests on every push and PR to main.
+#
+# Why this exists for the talk:
+#   - Beat 2 (Claude Code) generates Playwright specs via subagents.
+#   - This workflow is the gate that proves those specs actually pass in CI,
+#     not just on the author's laptop.
+#   - Pairs with .github/workflows/codeql.yml and .github/dependabot.yml
+#     to show "the trio" of GitHub-native quality gates.
+
+name: Playwright
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: playwright-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: chromium
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
+
+      - name: Install Playwright browsers (chromium only)
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright tests
+        run: npx playwright test --reporter=list
+
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: app/playwright-report/
+          retention-days: 14

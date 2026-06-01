@@ -1,0 +1,55 @@
+# CodeQL code scanning.
+#
+# Why this exists for the talk:
+#   - Beat 3 (GitHub Copilot fleet) talks about the org-level quality bar.
+#   - Code scanning IS that bar at the platform layer — runs on every PR,
+#     every push to main, and on a weekly schedule for drift detection.
+#   - Findings show up in the Security tab and as inline PR review comments.
+#   - The "security-extended" query suite catches more than the default.
+
+name: CodeQL
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Monday 06:00 UTC — drift scan for any new CVE patterns that landed
+    # after a PR merged clean.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
+concurrency:
+  group: codeql-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [javascript-typescript, actions]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          queries: security-extended,security-and-quality
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: /language:${{ matrix.language }}

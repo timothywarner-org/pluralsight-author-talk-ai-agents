@@ -58,8 +58,22 @@ The app has no backend. Enrollment data lives in `sessionStorage`. Nothing leave
 
 - **Want the prompts to recreate every demo?** → [`prompts/`](./prompts/)
 - **Want the subagent definitions?** → [`.claude/agents/`](./.claude/agents/)
+- **Want the Skill that drives the Playwright loop?** → [`.claude/skills/playwright-spec-generator/`](./.claude/skills/playwright-spec-generator/) (includes executable helpers under `scripts/` and reference docs under `reference/`)
 - **Want the quality bar that drives Copilot Coding Agent and PR Reviewer?** → [`.github/copilot-instructions.md`](./.github/copilot-instructions.md)
 - **Want issues you can assign to `@copilot` to watch it work?** → check the [open issues](../../issues) tagged `copilot-ready`.
+
+## Security & supply chain
+
+This repo runs the trio of GitHub-native quality gates side-by-side. It's a live reference for what "table stakes" looks like on a 2026 repo:
+
+| Control | Where it lives | What it does |
+|---|---|---|
+| **CodeQL code scanning** | [`.github/workflows/codeql.yml`](./.github/workflows/codeql.yml) | JS + Actions static analysis on push, PR, and weekly. `security-extended` query suite. |
+| **Playwright CI** | [`.github/workflows/playwright.yml`](./.github/workflows/playwright.yml) | Runs every spec on push and PR. Uploads HTML reports as artifacts. |
+| **Dependabot** | [`.github/dependabot.yml`](./.github/dependabot.yml) | Weekly grouped PRs for npm + GitHub Actions updates. |
+| **Secret scanning** | Repo setting | GitHub-native credential detection. Enabled. |
+| **Push protection** | Repo setting | Blocks pushes that contain detected secrets. Enabled. |
+| **Security policy** | [`SECURITY.md`](./SECURITY.md) | How to report a real vulnerability. |
 
 ---
 

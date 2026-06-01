@@ -1,0 +1,57 @@
+# Dependabot configuration.
+#
+# Why this exists for the talk:
+#   - Closes the supply-chain triangle: CodeQL (your code), Secret scanning
+#     (your secrets), Dependabot (everyone else's code you depend on).
+#   - Opens weekly PRs for npm + GitHub Actions updates.
+#   - PRs land on Monday morning so the team's first action of the week
+#     is reviewing one batched update set, not chasing alerts ad hoc.
+#
+# Reference: https://docs.github.com/en/code-security/dependabot
+
+version: 2
+
+updates:
+  # ── Application npm dependencies ─────────────────────────────────────
+  - package-ecosystem: "npm"
+    directory: "/app"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "07:00"
+      timezone: "America/Chicago"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "ecosystem:npm"
+    commit-message:
+      prefix: "chore(deps)"
+      include: "scope"
+    groups:
+      # Roll all minor/patch bumps into one weekly PR. Reviewing 1 PR
+      # with 7 updates is easier than reviewing 7 PRs with 1 each.
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
+    # Tests pin to a specific Playwright major; let Dependabot bump within
+    # that major but require human approval for the next major jump.
+    ignore:
+      - dependency-name: "@playwright/test"
+        update-types:
+          - "version-update:semver-major"
+
+  # ── GitHub Actions versions ──────────────────────────────────────────
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "07:00"
+      timezone: "America/Chicago"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "ecosystem:actions"
+    commit-message:
+      prefix: "chore(actions)"

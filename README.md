@@ -1,3 +1,27 @@
+<p align="center">
+  <img src="./images/banner.svg" alt="AI Agents in Practice — Pluralsight Author Talk by Tim Warner" width="100%">
+</p>
+
+<p align="center">
+  <a href="https://techtrainertim.com"><img alt="TechTrainerTim.com" src="https://img.shields.io/badge/TechTrainerTim.com-0e1116?style=for-the-badge&logo=googlechrome&logoColor=58a6ff"></a>
+  <a href="https://app.pluralsight.com/profile/author/tim-warner"><img alt="Pluralsight Author" src="https://img.shields.io/badge/Pluralsight-Author-F15B2A?style=for-the-badge&logo=pluralsight&logoColor=white"></a>
+  <a href="https://mvp.microsoft.com/en-US/MVP/profile/tim-warner"><img alt="Microsoft MVP" src="https://img.shields.io/badge/Microsoft%20MVP-Azure%20AI-00BCF2?style=for-the-badge&logo=microsoft&logoColor=white"></a>
+  <a href="https://www.youtube.com/@TechTrainerTim"><img alt="YouTube" src="https://img.shields.io/badge/YouTube-Subscribe-FF0000?style=for-the-badge&logo=youtube&logoColor=white"></a>
+  <a href="https://www.linkedin.com/in/timothywarner/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+</p>
+
+<p align="center">
+  <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/github/license/timothywarner-org/pluralsight-author-talk-ai-agents?style=flat-square"></a>
+  <a href="../../actions/workflows/playwright.yml"><img alt="Playwright" src="https://img.shields.io/github/actions/workflow/status/timothywarner-org/pluralsight-author-talk-ai-agents/playwright.yml?label=Playwright&style=flat-square&logo=playwright"></a>
+  <a href="../../actions/workflows/codeql.yml"><img alt="CodeQL" src="https://img.shields.io/github/actions/workflow/status/timothywarner-org/pluralsight-author-talk-ai-agents/codeql.yml?label=CodeQL&style=flat-square&logo=github"></a>
+  <a href="../../security"><img alt="Security policy" src="https://img.shields.io/badge/security-policy-blueviolet?style=flat-square&logo=github"></a>
+  <a href="../../issues"><img alt="Open issues" src="https://img.shields.io/github/issues/timothywarner-org/pluralsight-author-talk-ai-agents?style=flat-square"></a>
+  <a href="../../pulls"><img alt="Open PRs" src="https://img.shields.io/github/issues-pr/timothywarner-org/pluralsight-author-talk-ai-agents?style=flat-square"></a>
+  <a href="../../commits/main"><img alt="Last commit" src="https://img.shields.io/github/last-commit/timothywarner-org/pluralsight-author-talk-ai-agents?style=flat-square"></a>
+</p>
+
+---
+
 # Pluralsight Author Talk — AI Agents Demo
 
 The companion repository for Tim Warner's Pluralsight Author Talk on **M365 Copilot, Claude Code, and GitHub Copilot**. Fork it, clone it, install it, watch the agents work.

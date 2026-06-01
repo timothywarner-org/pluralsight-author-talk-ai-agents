@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Q&A and general discussion
+    url: https://github.com/timothywarner-org/pluralsight-author-talk-ai-agents/discussions
+    about: For "how do I use this?" questions, use Discussions instead of opening an issue.
+  - name: Security vulnerability
+    url: https://github.com/timothywarner-org/pluralsight-author-talk-ai-agents/security/advisories/new
+    about: Found a real vulnerability? Open a private security advisory — do not file a public issue.
+  - name: Tim's Pluralsight courses
+    url: https://app.pluralsight.com/profile/author/tim-warner
+    about: For deeper learning on AI agents, MCP, Copilot, Claude Code, and more.

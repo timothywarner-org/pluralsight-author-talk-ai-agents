@@ -1,0 +1,75 @@
+name: Bug report
+description: Something in the demo app or the agent definitions is broken.
+title: "bug: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug. This template helps the maintainer (and any AI
+        agent assigned to fix it) reproduce the issue quickly.
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear description of the bug.
+      placeholder: When I do X, I expect Y, but Z happens instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps a reviewer can follow to see the bug.
+      placeholder: |
+        1. cd app && npm run dev
+        2. Open http://localhost:3000
+        3. Click ...
+        4. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What should have happened?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Which surface is affected?
+      options:
+        - The demo web app (app/public)
+        - A Playwright spec (tests/)
+        - A Claude Code subagent (.claude/agents/)
+        - The playwright-spec-generator Skill (.claude/skills/)
+        - A GitHub Actions workflow (.github/workflows/)
+        - A prompt (prompts/)
+        - Documentation (README, CONTRIBUTING, etc.)
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: |
+        - OS:
+        - Node version:
+        - Browser:
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow this project's [Code of Conduct](../blob/main/CODE_OF_CONDUCT.md).
+          required: true

@@ -1,0 +1,35 @@
+# CODEOWNERS — auto-request reviewers for paths matched below.
+#
+# Why this matters for the talk:
+#   - Pairs with .github/copilot-instructions.md to enforce the org quality bar.
+#   - GitHub auto-requests a review from listed owners on any matching PR.
+#   - Combined with branch protection, you can require a CODEOWNERS approval
+#     before merge.
+#
+# Syntax reference: https://docs.github.com/en/repositories/managing-your-repositories-settings-and-security/customizing-your-repository/about-code-owners
+
+# Default owner — everything not matched below.
+*                                       @timothywarner
+
+# Agent and Skill definitions — Tim only, no agent self-modification.
+/.claude/                               @timothywarner
+/.claude/agents/                        @timothywarner
+/.claude/skills/                        @timothywarner
+
+# Governance and CI — Tim only.
+/.github/copilot-instructions.md        @timothywarner
+/.github/workflows/                     @timothywarner
+/.github/dependabot.yml                 @timothywarner
+/.github/CODEOWNERS                     @timothywarner
+
+# Security and community-standards files — Tim only.
+/SECURITY.md                            @timothywarner
+/CODE_OF_CONDUCT.md                     @timothywarner
+/CONTRIBUTING.md                        @timothywarner
+/SUPPORT.md                             @timothywarner
+
+# Prompts — Tim only (these are the talk script).
+/prompts/                               @timothywarner
+
+# App code and tests — open to community contribution (default owner applies).
+# Intentionally NOT listed here so anyone can review.

@@ -15,7 +15,6 @@ Start here regardless of which tool you reach for. The agentic tools below all r
 | Resource | Type | Why |
 |---|---|---|
 | [Prompt engineering overview](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) | Docs (free) | The canonical primer, with a "prompting best practices" page for model-specific tuning. |
-| [Context Engineering with MCP](https://www.oreilly.com/) | O'Reilly Live Training | Tim's live course on feeding agents the right context at the right time via the Model Context Protocol. Search the O'Reilly catalog for the next scheduled date. |
 | [Model Context Protocol - Introduction](https://modelcontextprotocol.io/) | Docs (free) | What MCP is, why it exists, and how tools, resources, and prompts compose. The spec is readable in one sitting. |
 | [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook) | Repo (free) | Runnable notebooks for tool use, structured output, RAG, and evaluation patterns. |
 

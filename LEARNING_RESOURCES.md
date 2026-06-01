@@ -16,7 +16,7 @@ Start here regardless of which tool you reach for. The agentic tools below all r
 |---|---|---|
 | [Prompt engineering overview](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview) | Docs (free) | The canonical primer, with a "prompting best practices" page for model-specific tuning. |
 | [Model Context Protocol - Introduction](https://modelcontextprotocol.io/) | Docs (free) | What MCP is, why it exists, and how tools, resources, and prompts compose. The spec is readable in one sitting. |
-| [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook) | Repo (free) | Runnable notebooks for tool use, structured output, RAG, and evaluation patterns. |
+| [Claude Cookbooks](https://github.com/anthropics/claude-cookbooks) | Repo (free) | Runnable notebooks for tool use, structured output, RAG, subagents, and prompt caching. |
 
 ---
 
@@ -32,7 +32,8 @@ The lowest rung is a custom-instruction agent in M365 Copilot Chat. The next run
 | [Agent Builder in Microsoft 365 Copilot](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder) | Docs (free) | The no-code builder Tim used live. Fastest path from idea to running agent. |
 | [Add knowledge sources to your declarative agent](https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agent-builder-add-knowledge) | Docs (free) | How to ground an agent in SharePoint and public content - the move that makes a custom agent actually useful. |
 | [Introduction to tools for declarative agents in Copilot Studio](https://learn.microsoft.com/en-us/training/modules/introduction-copilot-studio-actions/) | Learn module (free) | Guided, hands-on. Pairs actions and connectors with a declarative agent. |
-| [Microsoft Copilot Studio](https://app.pluralsight.com/profile/author/tim-warner) | **(Pluralsight)** | Tim's deeper Copilot Studio coverage. Check the author page for the current course list. |
+| [Introduction to Microsoft Copilot Studio](https://www.pluralsight.com/courses/microsoft-copilot-studio-introduction) | **(Pluralsight)** | Tim's full course on what Copilot Studio is, how it fits in the Power Platform, and building your first agent. The deeper version of Beat 1's live build. |
+| [Copilot in Microsoft Windows](https://www.pluralsight.com/courses/copilot-microsoft-windows) | **(Pluralsight)** | Tim's course on where Copilot in Windows sits in the larger Microsoft Copilot ecosystem. Context for the lowest rung of the agent ladder. |
 
 ---
 
@@ -49,7 +50,7 @@ Subagents, Skills, plugins, and the agentic loop on real engineering work. This 
 | [Claude Code settings and configuration](https://code.claude.com/docs/en/settings) | Docs (free) | Hooks, permissions, allowed tools. The wiring that makes an agent fleet safe to let run. |
 | [Claude Code best practices](https://code.claude.com/docs/en/best-practices) | Docs (free) | Anthropic's own field guide. Context discipline, the explore-plan-code-commit loop, and when to use plan mode. |
 | [Building effective agents](https://www.anthropic.com/research/building-effective-agents) | Article (free) | The conceptual backbone: workflows vs agents, and why simple compositions beat clever frameworks. |
-| [Claude Code: An Agentic Approach](https://app.pluralsight.com/profile/author/tim-warner) | **(Pluralsight)** | Tim's Claude Code coverage. See the author page for the current title and module list. |
+| [Tim Warner on Pluralsight](https://www.pluralsight.com/authors/tim-warner) | **(Pluralsight)** | Tim's full catalog. Claude Code and agentic-development titles land here as they release. Filter by newest. |
 
 **Practice in this very repo.** The fastest way to internalize Beat 2 is to run the loop yourself:
 
@@ -71,6 +72,7 @@ One instructions file governs every PR Copilot opens or reviews. In this repo th
 | [Adding repository custom instructions for GitHub Copilot](https://docs.github.com/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot) | Docs (free) | How `copilot-instructions.md` and `AGENTS.md` are read. The mechanism behind the hero file in this repo. |
 | [Best practices for using Copilot to work on tasks](https://docs.github.com/copilot/how-tos/agents/copilot-coding-agent/best-practices-for-using-copilot-to-work-on-tasks) | Docs (free) | How to scope an issue so the coding agent succeeds instead of flailing. |
 | [github/awesome-copilot](https://github.com/github/awesome-copilot) | Repo (free) | Community instruction files, agents, and configs. Steal the patterns. |
+| [The IT Ops Sessions: GitHub Copilot for the IT Operations Professional](https://www.pluralsight.com/courses/github-copilot-it-operations-professional-it-ops-sessions) | **(Pluralsight)** | Tim's course on putting GitHub Copilot to work in VS Code: automation scripts, refactoring, and learning new scripting languages. |
 
 ### Security and supply chain (the trio Beat 3 puts on screen)
 
@@ -81,6 +83,7 @@ One instructions file governs every PR Copilot opens or reviews. In this repo th
 | [About code scanning with CodeQL](https://docs.github.com/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql) | Docs (free) | What CodeQL does and how the `security-extended` suite differs from the default. |
 | [About Dependabot](https://docs.github.com/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) | Docs (free) | Alerts vs version updates vs security updates. The `app/package.json` bait in this repo triggers alerts. |
 | [About secret scanning](https://docs.github.com/code-security/secret-scanning/introduction/about-secret-scanning) | Docs (free) | Detection, validity checks, and **push protection** - the platform-layer guarantee that blocks a secret at `git push`. |
+| [GH-500: GitHub Advanced Security](https://www.pluralsight.com/paths/gh-500-github-advanced-security) | **(Pluralsight)** | Tim's full 7-course certification path covering exactly the trio Beat 3 demos: code scanning with CodeQL, secret scanning, and supply-chain dependency review. The deep dive behind the `demo/` landmines. |
 
 ---
 

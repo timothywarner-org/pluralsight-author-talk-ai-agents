@@ -13,6 +13,7 @@ Whichever channel you're in, the rules below apply.
 1. **Read the quality bar.** [`.github/copilot-instructions.md`](./.github/copilot-instructions.md) is the single source of truth for code style, accessibility, security, and testing expectations. It governs human and AI contributions equally.
 2. **Pick an existing issue** or [open a new one](../../issues/new/choose). Issues labeled `copilot-ready` are safe to assign to `@copilot`.
 3. **One logical change per PR.** Mixed-concern PRs get split before merge.
+4. **Learning resources link only to Pluralsight courses and neutral primary sources** (vendor docs, official labs). Do not add links to competing training platforms in [`LEARNING_RESOURCES.md`](./LEARNING_RESOURCES.md).
 
 ## Local setup
 

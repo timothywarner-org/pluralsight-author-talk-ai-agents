@@ -56,6 +56,9 @@ This repo is the **shared demo surface** for the three beats of the talk:
 ├── .claude/
 │   ├── agents/                   # test-writer, qa-reviewer, security-reviewer
 │   └── skills/                   # playwright-spec-generator
+├── demo/                         # Beat 3 security props (intentional, labeled)
+│   ├── codeql-bait/              # A planted bug for CodeQL to find on stage
+│   └── secret-scanning-trap/     # Fake-but-realistic secrets for the Security tab
 └── prompts/                      # Copy-paste prompts for each tool
     ├── 01-m365-copilot-agent.md
     ├── 02-copilot-studio-agent.md
@@ -85,10 +88,11 @@ The app has no backend. Enrollment data lives in `sessionStorage`. Nothing leave
 - **Want the Skill that drives the Playwright loop?** → [`.claude/skills/playwright-spec-generator/`](./.claude/skills/playwright-spec-generator/) (includes executable helpers under `scripts/` and reference docs under `reference/`)
 - **Want the quality bar that drives Copilot Coding Agent and PR Reviewer?** → [`.github/copilot-instructions.md`](./.github/copilot-instructions.md)
 - **Want issues you can assign to `@copilot` to watch it work?** → check the [open issues](../../issues) tagged `copilot-ready`.
+- **Want to keep learning after the talk?** → [`LEARNING_RESOURCES.md`](./LEARNING_RESOURCES.md) — courses, docs, labs, and reading for every tool covered.
 
 ## Security & supply chain
 
-This repo runs the trio of GitHub-native quality gates side-by-side. It's a live reference for what "table stakes" looks like on a 2026 repo:
+This repo runs the GitHub-native quality gates side-by-side. It's a live reference for what "table stakes" looks like on a 2026 repo:
 
 | Control | Where it lives | What it does |
 |---|---|---|
@@ -98,6 +102,14 @@ This repo runs the trio of GitHub-native quality gates side-by-side. It's a live
 | **Secret scanning** | Repo setting | GitHub-native credential detection. Enabled. |
 | **Push protection** | Repo setting | Blocks pushes that contain detected secrets. Enabled. |
 | **Security policy** | [`SECURITY.md`](./SECURITY.md) | How to report a real vulnerability. |
+
+> **Heads up - this repo plants defects on purpose.** To make the Security tab worth showing on stage, three things here are deliberately broken and clearly labeled:
+>
+> - **`app/package.json`** pins **known-vulnerable** npm packages so the Dependabot tab fills with real CVE alerts. **None of those packages are imported by the app** — see the `_dependency_note` field. Do not upgrade them or `npm install` expecting them to be used.
+> - **[`demo/codeql-bait/`](./demo/codeql-bait/)** holds a planted bug for CodeQL to surface.
+> - **[`demo/secret-scanning-trap/`](./demo/secret-scanning-trap/)** holds fake-but-realistic credentials that trip secret scanning. **Every value is fake** and grants access to nothing.
+>
+> If you fork this repo as a starting point, **delete `demo/` and reset `app/package.json`'s `dependencies` block** before you build anything real.
 
 ---
 

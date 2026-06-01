@@ -43,7 +43,7 @@ This repo is the **shared demo surface** for the three beats of the talk:
 ## Quick start
 
 ```bash
-git clone https://github.com/timothywarner/pluralsight-author-talk-ai-agents.git
+git clone https://github.com/timothywarner-org/pluralsight-author-talk-ai-agents.git
 cd pluralsight-author-talk-ai-agents/app
 npm install
 npm run dev          # serves http://localhost:3000

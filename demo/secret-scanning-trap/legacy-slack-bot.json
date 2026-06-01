@@ -1,0 +1,6 @@
+{
+  "_comment": "FAKE TEST CREDENTIAL -- DO NOT USE. Planted to trigger GitHub secret scanning.",
+  "_pattern": "xoxb-{integer}-{integer}-{24chars}  --  Slack bot user OAuth token.",
+  "slack_bot_token": "xoxb-1234567890123-1234567890123-FAKEFAKEFAKEFAKEFAKEFAKE",
+  "channel": "#engineering"
+}

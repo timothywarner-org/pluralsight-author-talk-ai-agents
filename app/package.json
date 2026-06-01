@@ -15,7 +15,7 @@
     "lodash": "4.17.11",
     "minimist": "1.2.5",
     "axios": "0.21.0",
-    "marked": "0.3.6",
+    "marked": "4.0.10",
     "node-fetch": "2.6.0",
     "ws": "7.4.5",
     "jsonwebtoken": "8.5.0",

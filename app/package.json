@@ -10,5 +10,16 @@
   },
   "devDependencies": {
     "@playwright/test": "^1.47.0"
-  }
+  },
+  "dependencies": {
+    "lodash": "4.17.11",
+    "minimist": "1.2.5",
+    "axios": "0.21.0",
+    "marked": "0.3.6",
+    "node-fetch": "2.6.0",
+    "ws": "7.4.5",
+    "jsonwebtoken": "8.5.0",
+    "serialize-javascript": "1.4.0"
+  },
+  "_dependency_note": "The packages under 'dependencies' are pinned to KNOWN-VULNERABLE versions on purpose. They populate the Dependabot tab with real CVE alerts for the Pluralsight Author Talk demo. None of these packages are imported by the app — see app/public/scripts/. Do not npm install in production."
 }

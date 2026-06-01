@@ -9,6 +9,7 @@
     "test:install": "npx --yes playwright install --with-deps chromium"
   },
   "devDependencies": {
-    "@playwright/test": "^1.47.0"
+    "@playwright/test": "^1.47.0",
+    "request": "^2.88.2"
   }
 }

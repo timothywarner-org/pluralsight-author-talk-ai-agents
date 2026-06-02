@@ -55,6 +55,6 @@
     // In a real app this would POST to an API. For the demo we stash it
     // in sessionStorage so the confirmation page can render it.
     sessionStorage.setItem('authorTalkEnrollment', JSON.stringify(payload));
-    window.location.href = 'confirm.html';
+    window.location.href = 'confirm';
   });
 })();

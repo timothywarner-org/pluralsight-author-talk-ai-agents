@@ -10,3 +10,4 @@ blob-report/
 *.log
 .vscode/
 .idea/
+/package-lock.json

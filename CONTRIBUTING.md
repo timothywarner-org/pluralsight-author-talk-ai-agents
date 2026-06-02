@@ -37,8 +37,8 @@ npm test
 
 1. Branch from `main`. Branch names: `feat/<summary>`, `fix/<summary>`, `chore/<summary>`, `docs/<summary>`, `test/<summary>`.
 2. Make the change.
-3. Add or update Playwright specs in `tests/`. Use `data-testid` selectors only — see [`.claude/skills/playwright-spec-generator/reference/selector-rules.md`](./.claude/skills/playwright-spec-generator/reference/selector-rules.md).
-4. Run `npm test` from `app/`. Paste the passing summary into your PR description.
+3. Add or update Playwright specs in **`app/tests/`**. Use `data-testid` selectors only. See [`.claude/skills/playwright-spec-generator/reference/selector-rules.md`](./.claude/skills/playwright-spec-generator/reference/selector-rules.md).
+4. Run `npm test` from `app/`. To run one spec, use `npx playwright test tests/<flow>.spec.js` from `app/`. Paste the passing summary into your PR description.
 5. Open a PR using the template. Link the issue with `Closes #N`.
 
 ### If you're an AI agent
@@ -48,7 +48,8 @@ You operate under [`.github/copilot-instructions.md`](./.github/copilot-instruct
 - Do not add a dependency without asking. The only approved dev dep is `@playwright/test`.
 - Do not modify `.github/workflows/*`, `.claude/agents/*`, `.claude/skills/*`, or this file without explicit human approval.
 - Every PR you open must include or update a Playwright spec for the change.
-- If the issue is ambiguous, ask in a comment rather than guessing.
+- The `playwright-spec-generator` Skill is the procedure for writing one spec. To cover several flows in a single pass, the **`parallel-spec-fleet`** Skill (`/parallel-spec-fleet` at [`.claude/skills/parallel-spec-fleet/`](./.claude/skills/parallel-spec-fleet/)) fans out `test-writer`, `qa-reviewer`, and `security-reviewer` concurrently.
+- If the issue is ambiguous, raise a question in a comment rather than guessing.
 
 ## Commit messages
 

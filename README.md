@@ -40,6 +40,11 @@ This repo is the **shared demo surface** for the three beats of the talk:
 
 ```
 .
+├── agent.html                    # "What Is An Agent" full-viewport image showcase
+├── WHAT_IS_AN_AGENT.md           # Conceptual top-of-funnel reading for that page
+├── secret-scanning-test.py       # Intentional secret-scanning landmine (fake API key)
+├── images/
+│   └── agent.png                 # Hero image for agent.html
 ├── app/                          # The static demo web app
 │   ├── public/
 │   │   ├── index.html            # Browse learning paths
@@ -47,22 +52,27 @@ This repo is the **shared demo surface** for the three beats of the talk:
 │   │   ├── confirm.html          # Confirmation page
 │   │   ├── scripts/              # Vanilla JS, no build step
 │   │   └── styles/main.css
+│   ├── tests/                    # Subagents write Playwright specs here (canonical)
+│   │   └── enrollment-flow.spec.js
 │   ├── package.json              # `npm run dev`, `npm test`
-│   └── playwright.config.js
-├── tests/                        # Subagents write Playwright specs here
+│   └── playwright.config.js      # testDir: ./tests (relative to app/)
+├── tests/                        # Legacy/empty root dir (.gitkeep only); active specs live in app/tests/
 ├── .github/
 │   ├── copilot-instructions.md   # The team quality bar — Beat 3's hero file
 │   └── ISSUE_TEMPLATE/
 ├── .claude/
 │   ├── agents/                   # test-writer, qa-reviewer, security-reviewer
-│   └── skills/                   # playwright-spec-generator
+│   └── skills/
+│       ├── playwright-spec-generator/   # The single-flow Playwright recipe
+│       └── parallel-spec-fleet/         # Fans the subagents across multiple flows at once
 ├── demo/                         # Beat 3 security props (intentional, labeled)
 │   ├── codeql-bait/              # A planted bug for CodeQL to find on stage
 │   └── secret-scanning-trap/     # Fake-but-realistic secrets for the Security tab
 └── prompts/                      # Copy-paste prompts for each tool
     ├── 01-m365-copilot-agent.md
     ├── 02-copilot-studio-agent.md
-    └── 03-claude-code-subagents-and-skills.md
+    ├── 03-claude-code-subagents-and-skills.md
+    └── parallel-spec-fleet.md    # Stage-handout reading for the /parallel-spec-fleet skill
 ```
 
 ---
@@ -72,20 +82,23 @@ This repo is the **shared demo surface** for the three beats of the talk:
 ```bash
 git clone https://github.com/timothywarner-org/pluralsight-author-talk-ai-agents.git
 cd pluralsight-author-talk-ai-agents/app
-npm install
-npm run dev          # serves http://localhost:3000
-npm test             # runs Playwright specs (after `npm run test:install`)
+npm install              # installs @playwright/test (the only real dependency)
+npm run dev              # serves public/ on http://localhost:3000 via serve
+npm run test:install     # one-time: chromium install for Playwright
+npm test                 # runs every spec in app/tests/
 ```
 
-The app has no backend. Enrollment data lives in `sessionStorage`. Nothing leaves the browser.
+There is **no build step and no lint step**. The app has no backend. Enrollment data lives in `sessionStorage`. Nothing leaves the browser.
 
 ---
 
 ## Following along
 
+- **New to the whole idea?** → start with [`agent.html`](./agent.html) and [`WHAT_IS_AN_AGENT.md`](./WHAT_IS_AN_AGENT.md), the "What Is An Agent" conceptual opener.
 - **Want the prompts to recreate every demo?** → [`prompts/`](./prompts/)
 - **Want the subagent definitions?** → [`.claude/agents/`](./.claude/agents/)
-- **Want the Skill that drives the Playwright loop?** → [`.claude/skills/playwright-spec-generator/`](./.claude/skills/playwright-spec-generator/) (includes executable helpers under `scripts/` and reference docs under `reference/`)
+- **Want the Skill that drives the single-flow Playwright loop?** → [`.claude/skills/playwright-spec-generator/`](./.claude/skills/playwright-spec-generator/) (includes executable helpers under `scripts/` and reference docs under `reference/`)
+- **Want to fan the subagents across multiple flows at once?** → [`.claude/skills/parallel-spec-fleet/`](./.claude/skills/parallel-spec-fleet/) (the `/parallel-spec-fleet` skill; stage-handout reading is [`prompts/parallel-spec-fleet.md`](./prompts/parallel-spec-fleet.md))
 - **Want the quality bar that drives Copilot Coding Agent and PR Reviewer?** → [`.github/copilot-instructions.md`](./.github/copilot-instructions.md)
 - **Want issues you can assign to `@copilot` to watch it work?** → check the [open issues](../../issues) tagged `copilot-ready`.
 - **Want to keep learning after the talk?** → [`LEARNING_RESOURCES.md`](./LEARNING_RESOURCES.md) — courses, docs, labs, and reading for every tool covered.
@@ -103,13 +116,14 @@ This repo runs the GitHub-native quality gates side-by-side. It's a live referen
 | **Push protection** | Repo setting | Blocks pushes that contain detected secrets. Enabled. |
 | **Security policy** | [`SECURITY.md`](./SECURITY.md) | How to report a real vulnerability. |
 
-> **Heads up - this repo plants defects on purpose.** To make the Security tab worth showing on stage, three things here are deliberately broken and clearly labeled:
+> **Heads up - this repo plants defects on purpose.** To make the Security tab worth showing on stage, several things here are deliberately broken and clearly labeled:
 >
 > - **`app/package.json`** pins **known-vulnerable** npm packages so the Dependabot tab fills with real CVE alerts. **None of those packages are imported by the app** — see the `_dependency_note` field. Do not upgrade them or `npm install` expecting them to be used.
 > - **[`demo/codeql-bait/`](./demo/codeql-bait/)** holds a planted bug for CodeQL to surface.
 > - **[`demo/secret-scanning-trap/`](./demo/secret-scanning-trap/)** holds fake-but-realistic credentials that trip secret scanning. **Every value is fake** and grants access to nothing.
+> - **[`secret-scanning-test.py`](./secret-scanning-test.py)** is a second secret-scanning landmine - a Python Anthropic Messages API console demo that **intentionally hardcodes a fake, Anthropic-style API key** (currently an empty string) so GitHub Advanced Security has another credential pattern to flag. **Every value is fake** and grants access to nothing.
 >
-> If you fork this repo as a starting point, **delete `demo/` and reset `app/package.json`'s `dependencies` block** before you build anything real.
+> If you fork this repo as a starting point, **delete `demo/`, delete `secret-scanning-test.py`, and reset `app/package.json`'s `dependencies` block** before you build anything real.
 
 ---
 

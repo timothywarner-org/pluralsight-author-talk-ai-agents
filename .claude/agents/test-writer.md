@@ -3,6 +3,7 @@ name: test-writer
 description: Generates Playwright end-to-end test specs for the AI Skill Path Picker app. Use whenever a new feature needs test coverage, a regression needs reproducing, or an existing flow needs a Page Object Model. The agent reads the live DOM via the running dev server, drafts a spec using data-testid selectors only, and writes it into tests/. It does NOT run the tests itself — hand off to qa-reviewer for that.
 tools: Read, Write, Edit, Bash, Glob, Grep
 model: sonnet
+skills: [playwright-spec-generator]
 ---
 
 # Role
